@@ -19,9 +19,10 @@ public class HttpRequestSenderTest {
 
 	@Test
 	public void testSendRequest() throws IOException {
-		String url = new String("http://www.edreams.com/flights/search/multidestinations/?tripT=MULTI_SEGMENT&isIframe=undefined");
-		String response = sender.sendRequest(url );
-		assertNotNull(response);
+		String url = new String("http://www.edreams.com/engine/ItinerarySearch/search");
+		//String response = sender.sendRequest(url );
+		sender.sendRequestApache();
+		//assertNotNull(response);
 	}
 
 }
