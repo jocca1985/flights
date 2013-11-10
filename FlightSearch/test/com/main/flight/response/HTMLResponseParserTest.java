@@ -16,8 +16,9 @@ public class HTMLResponseParserTest {
 	@Test
 	public void test() {
 	//	fail("Not yet implemented");
-		String htmlExample = "<html><head></head><body><div>test</div></body></html>"
-		String parsedResponse = responseParser.parse("")
+		String htmlExample = "<html><head></head><body><div class=\"singleItinerayPrice defaultWhiteText centerAlign\">13</div></body></html>";
+		String parsedResponse = responseParser.parse(htmlExample); 
+		System.out.println(parsedResponse);
 	}
 
 }

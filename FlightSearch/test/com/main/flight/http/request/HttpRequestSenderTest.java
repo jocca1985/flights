@@ -21,8 +21,8 @@ public class HttpRequestSenderTest {
 	public void testSendRequest() throws IOException {
 		String url = new String("http://www.edreams.com/engine/ItinerarySearch/search");
 		//String response = sender.sendRequest(url );
-		sender.sendRequestApache();
-		//assertNotNull(response);
+		String response = sender.sendRequestApache();
+		assertNotNull(response);
 	}
 
 }

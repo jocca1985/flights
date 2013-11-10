@@ -5,6 +5,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.StringWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ import org.apache.http.message.BasicNameValuePair;
 
 public class HttpRequestSender {
 	
-	public String sendRequest(String url) throws IOException {
+	public int sendRequest(String url) throws IOException {
 		URL obj = new URL(url);
 		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 		
@@ -60,13 +61,13 @@ public class HttpRequestSender {
 			System.out.println(inputLine);
 		in.close();
 		String response = null;
-		return response;
+		return responseCode;
 
 	}
 	public String sendRequestApache() throws IOException{
 		HttpClient httpclient = new DefaultHttpClient();
 		HttpPost httppost = new HttpPost("http://www.edreams.com/engine/ItinerarySearch/search");
-
+		String result = "";
 		// Request parameters and other properties.
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
 	//	String urlParameters =;
@@ -103,14 +104,15 @@ public class HttpRequestSender {
 		//Execute and get the response.
 		HttpResponse response = httpclient.execute(httppost);
 		HttpEntity entity = response.getEntity();
-
+		StringWriter sw = new StringWriter();
 		if (entity != null) {
 		    InputStream instream = entity.getContent();
 		    BufferedReader in = new BufferedReader(new InputStreamReader(instream));
+		    
 			String inputLine;
-
+			
 			while ((inputLine = in.readLine()) != null)
-				System.out.println(inputLine);
+				sw.write(inputLine);
 			in.close();
 		    try {
 		        System.out.println(instream);
@@ -118,6 +120,6 @@ public class HttpRequestSender {
 		        instream.close();
 		    }
 		}
-		return null;
+		return sw.toString();
 	}
 }
