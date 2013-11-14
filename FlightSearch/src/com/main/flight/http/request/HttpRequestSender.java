@@ -2,6 +2,7 @@ package com.main.flight.http.request;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -81,16 +82,16 @@ public class HttpRequestSender {
 		params.add(new BasicNameValuePair("departureLocation0", "Rome"));
 		params.add(new BasicNameValuePair("arrivalLocationGeoNodeId0", "2592"));
 		params.add(new BasicNameValuePair("arrivalLocation0", "Frankfurt"));
-		params.add(new BasicNameValuePair("departureDate0", "09/11/2013"));
+		params.add(new BasicNameValuePair("departureDate0", "09/12/2013"));
 		params.add(new BasicNameValuePair("departureLocationGeoNodeId1", ""));
 		params.add(new BasicNameValuePair("departureLocation1", ""));
 		params.add(new BasicNameValuePair("arrivalLocationGeoNodeId1", ""));
 		params.add(new BasicNameValuePair("arrivalLocation1", ""));
-		params.add(new BasicNameValuePair("departureDate1", "09/11/2013"));
+		params.add(new BasicNameValuePair("departureDate1", "09/12/2013"));
 		params.add(new BasicNameValuePair("departureLocationGeoNodeId2", ""));
 		params.add(new BasicNameValuePair("departureLocation2", ""));
 		params.add(new BasicNameValuePair("arrivalLocation2Bt", ""));
-		params.add(new BasicNameValuePair("departureDate2", "09/11/2013"));
+		params.add(new BasicNameValuePair("departureDate2", "09/12/2013"));
 		params.add(new BasicNameValuePair("numAdults", "1"));
 		params.add(new BasicNameValuePair("numChilds", "0"));
 		params.add(new BasicNameValuePair("numInfant", "0"));
@@ -105,14 +106,17 @@ public class HttpRequestSender {
 		HttpResponse response = httpclient.execute(httppost);
 		HttpEntity entity = response.getEntity();
 		StringWriter sw = new StringWriter();
+		FileWriter fw = new FileWriter("C:\\temp\\index.html");
 		if (entity != null) {
 		    InputStream instream = entity.getContent();
 		    BufferedReader in = new BufferedReader(new InputStreamReader(instream));
 		    
 			String inputLine;
 			
-			while ((inputLine = in.readLine()) != null)
+			while ((inputLine = in.readLine()) != null){
 				sw.write(inputLine);
+				fw.write(inputLine);
+			}
 			in.close();
 		    try {
 		        System.out.println(instream);
