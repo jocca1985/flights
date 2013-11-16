@@ -7,7 +7,7 @@ import java.io.IOException;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.main.flight.http.request.HttpRequestSender;
+import com.main.flight.request.HttpRequestSender;
 
 public class HTMLResponseParserTest {
 	private HTMLResponseParser responseParser;

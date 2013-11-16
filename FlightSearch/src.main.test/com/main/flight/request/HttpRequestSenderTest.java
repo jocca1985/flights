@@ -1,4 +1,4 @@
-package com.main.flight.http.request;
+package com.main.flight.request;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -7,7 +7,7 @@ import java.io.IOException;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.main.flight.http.request.HttpRequestSender;
+import com.main.flight.request.HttpRequestSender;
 
 public class HttpRequestSenderTest {
 	private HttpRequestSender sender; 
@@ -19,8 +19,6 @@ public class HttpRequestSenderTest {
 
 	@Test
 	public void testSendRequest() throws IOException {
-		String url = new String("http://www.edreams.com/engine/ItinerarySearch/search");
-		//String response = sender.sendRequest(url );
 		String response = sender.sendRequestApache();
 		assertNotNull(response);
 	}
