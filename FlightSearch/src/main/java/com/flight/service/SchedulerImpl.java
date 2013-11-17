@@ -1,4 +1,4 @@
-package com.main.flight.service;
+package com.flight.service;
 
 import java.util.Date;
 
@@ -18,9 +18,9 @@ public class SchedulerImpl {
 	@Scheduled(cron = "* * 1 * * ?")
 	public void generateRequest() {
 
-		logger.info("Starting report at " + new Date(System.currentTimeMillis()));
-
-		logger.info("Report sent at " + new Date(System.currentTimeMillis()));
+//		logger.info("Starting report at " + new Date(System.currentTimeMillis()));
+//
+//		logger.info("Report sent at " + new Date(System.currentTimeMillis()));
 
 	}
 

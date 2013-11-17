@@ -1,4 +1,4 @@
-package com.main.flight.response;
+package com.flight.response;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -17,8 +17,8 @@ public class HTMLResponseParser {
 //		FileWriter fw = new FileWriter("C://temp//temp.html");
 //		fw.write(html.toString());
 		Elements prices = doc.select("div[class=singleItinerayPrice defaultWhiteText centerAlign]");
-		for (Element price : prices)
-			System.out.println(price.text());
+//		for (Element price : prices)
+////			System.out.println(price.text());
 		return prices.get(0).text();
 	}
 	

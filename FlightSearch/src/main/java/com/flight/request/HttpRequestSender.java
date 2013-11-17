@@ -1,4 +1,4 @@
-package com.main.flight.request;
+package com.flight.request;
 
 import java.io.BufferedReader;
 import java.io.FileWriter;
@@ -20,17 +20,17 @@ import org.apache.http.message.BasicNameValuePair;
 
 public class HttpRequestSender {
 	private String url = "http://www.edreams.com/engine/ItinerarySearch/search";
-	private String departureLocation0 = "Rio+De+Janeiro"; //must be stored with possibility of change
-	private String arrivalLocation0 = "Frankfurt";
-	private String departureDate0 = "09/05/2014"; //should be manualy enterned with possibility of manipulation
-	private String returnDate = "09/06/2014";
+//	private String departureLocation0 = "Rio+De+Janeiro"; //must be stored with possibility of change
+//	private String arrivalLocation0 = "Frankfurt";
+//	private String departureDate0 = "09/05/2014"; //should be manualy enterned with possibility of manipulation
+//	private String returnDate = "09/06/2014";
 	private String numAdults = "1";
-	private String index_location = "//home//master//Desktop//index.html";
+	private String index_location = "index.html";
 
-	public String sendRequestApache() throws IOException{
+	public String sendRequestApache(String departureLocation0, String arrivalLocation0, String departureDate0, String returnDate) throws IOException{
 		HttpClient httpclient = new DefaultHttpClient();
 		HttpPost httppost = new HttpPost(url);
-		List<NameValuePair> params = generateParamsMap();		
+		List<NameValuePair> params = generateParamsMap(departureLocation0, arrivalLocation0, departureDate0, returnDate);		
 		
 		httppost.setEntity(new UrlEncodedFormEntity(params, "UTF-8"));
 
@@ -51,7 +51,7 @@ public class HttpRequestSender {
 			}
 			in.close();
 		    try {
-		        System.out.println(instream);
+//		        System.out.println(instream);
 		    } finally {
 		        instream.close();
 		    }
@@ -59,7 +59,7 @@ public class HttpRequestSender {
 		return sw.toString();
 	}
 
-	private List<NameValuePair> generateParamsMap() {
+	private List<NameValuePair> generateParamsMap(String departureLocation0, String arrivalLocation0, String departureDate0, String returnDate) {
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
 		
 		params.add(new BasicNameValuePair("buyPath", "36"));
@@ -68,7 +68,7 @@ public class HttpRequestSender {
 		params.add(new BasicNameValuePair("tripTypeName", "MULTI_SEGMENT"));
 		//params.add(new BasicNameValuePair("departureLocationGeoNodeId0", "3641"));
 		params.add(new BasicNameValuePair("departureLocation0", departureLocation0));
-		params.add(new BasicNameValuePair("arrivalLocationGeoNodeId0", "2592"));
+		params.add(new BasicNameValuePair("arrivalLocationGeoNodeId0", ""));
 		params.add(new BasicNameValuePair("arrivalLocation0", arrivalLocation0));
 		params.add(new BasicNameValuePair("departureDate0", departureDate0));
 		params.add(new BasicNameValuePair("departureLocationGeoNodeId1", ""));
