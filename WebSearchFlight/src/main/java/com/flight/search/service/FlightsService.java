@@ -1,7 +1,9 @@
 package com.flight.search.service;
 
+import java.util.List;
+
 import com.flight.search.domain.SearchFlights;
 
 public interface FlightsService {
-	public String send(SearchFlights searchFlights);
+	public List<SearchFlights> send(SearchFlights searchFlights);
 }

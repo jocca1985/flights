@@ -43,6 +43,10 @@
 			</tr>
 		</table>
 	</form:form>
-
+	<h2>Response</h2>
+	<c:forEach var="window" items="${flightResponse}">
+	    <c:out value="${window}"/> 
+	</c:forEach>
+	
 </body>
 </html>
