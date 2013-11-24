@@ -11,5 +11,5 @@
     <task:executor id="taskExecutor" pool-size="1"/>
 
     <task:annotation-driven executor="taskExecutor" scheduler="taskScheduler"/> -->
-	<bean></bean>
+	<bean id="processRequestImpl" class="com.flight.service.ProcessRequestImpl" />
 </beans>

@@ -1,19 +1,26 @@
 package com.flight.search.domain;
 
-public class SearchFlights {
+public class SearchFlights {		
 		private String departureDate; 	
 		private String airportDepartureName; 	
 		private String arrivalDate; 	
 		private String airportArrivalName;
+		private String price;
 		
-		
-		@Override
-		public String toString() {
-			return "SearchFlights [departureDate=" + departureDate
-					+ ", airportDepartureName=" + airportDepartureName
-					+ ", arrivalDate=" + arrivalDate + ", airportArrivalName="
-					+ airportArrivalName + "]";
+		public SearchFlights() {
+			super();
 		}
+		
+		public SearchFlights(String departureDate, String airportDepartureName,
+				String arrivalDate, String airportArrivalName, String price) {
+			this.departureDate = departureDate;
+			this.airportDepartureName = airportDepartureName;
+			this.arrivalDate = arrivalDate;
+			this.airportArrivalName = airportArrivalName;
+			this.price = price;
+		}
+		
+		
 		public String getDepartureDate() {
 			return departureDate;
 		}
@@ -37,5 +44,20 @@ public class SearchFlights {
 		}
 		public void setAirportArrivalName(String airportArrivalName) {
 			this.airportArrivalName = airportArrivalName;
+		}
+		
+		public String getPrice() {
+			return price;
+		}
+		public void setPrice(String price) {
+			this.price = price;
+		}
+		
+		@Override
+		public String toString() {
+			return "SearchFlights [departureDate=" + departureDate
+					+ ", airportDepartureName=" + airportDepartureName
+					+ ", arrivalDate=" + arrivalDate + ", airportArrivalName="
+					+ airportArrivalName + ", price=" + price + "]";
 		}
 }
